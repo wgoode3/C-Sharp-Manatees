@@ -1,0 +1,38 @@
+﻿<div class="jumbotron">
+    <h1>ManateeDB</h1>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Rating</th>
+        <th>Roles</th>
+    </tr>
+    @foreach(var movie in ViewBag.Movies)
+    {
+        <tr>
+            <td>@movie.Title</td>
+            <td>@movie.Year</td>
+            <td>@movie.rating</td>
+            <td>
+                @foreach(var cast in movie.Casts)
+                {
+                    <span>@cast.Role (@cast.CastActor.Name), </span>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="col-sm-4">
+    <partial name="_ActressForm" ></partial>
+</div>
+
+<div class="col-sm-4">
+    <partial name="_MovieForm" ></partial>
+</div>
+
+<div class="col-sm-4">
+    <partial name="_CastForm" ></partial>
+</div>

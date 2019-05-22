@@ -1,0 +1,29 @@
+@model Cast
+
+<h2>Add a Casting</h2>
+
+<form action="/cast" method="post">
+    <div class="form-group">
+        <label>Role</label>
+        <input type="text" name="Role" class="form-control" />
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Actress or Actor</label>
+        <select name="ActorId" class="form-control">
+            @foreach(var actor in ViewBag.Actors)
+            {
+                <option value="@actor.ActorId">@actor.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Movie</label>
+        <select name="MovieId" class="form-control">
+            @foreach(var movie in ViewBag.Movies)
+            {
+                <option value="@movie.MovieId">@movie.Title</option>
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn btn-primary" />
+</form>
